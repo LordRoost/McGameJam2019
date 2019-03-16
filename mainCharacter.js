@@ -145,7 +145,7 @@ class MainCharacter
         if(this.animationState == "standing")
         {
             this.currentAnimation = this.animations.standing;
-            this.animations.standing.resetAnimation();
+            //this.animations.standing.resetAnimation();
         }
         else if(this.animationState == "running")
         {

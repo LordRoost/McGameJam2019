@@ -11,7 +11,8 @@ var gameSettings = {
     jumpHoldGravity: 75,
     playerRunSpeed: 550,
     playerJumpVelocity: -30,
-    playerScale: 1
+    playerScale: 1.0,
+    floorLevel: 570
 };
 
 var currentScreen = null;
@@ -20,10 +21,15 @@ var mainCharacter = null;
 var gravity = gameSettings.gravity;
 var jumpHoldGravity = gameSettings.jumpHoldGravity;
 
+var gameScreen = null;
+var menuScreen = null;
+
 love.load = function()
 {
     mainCharacter = new MainCharacter();
-    currentScreen = new MenuScreen();
+    menuScreen = new MenuScreen();
+    gameScreen = new NightTime();
+    currentScreen = gameScreen;
 }
 
 love.update = function(dt)
