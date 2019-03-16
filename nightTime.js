@@ -11,6 +11,7 @@ class NightTime
         this.drawfinalStagePic = false;
         this.bgVid.play();
         this.currentlyPlayingVid = this.bgVid;
+        this.snake = new Snake();
 
         this.eraseVid.onVideoEnd = function()
         {
@@ -21,8 +22,9 @@ class NightTime
 
         this.bgVid.onVideoEnd = function()
         {
-            this.currentlyPlayingVid = this.eraseVid;
-            this.currentlyPlayingVid.play();
+            this.snake.start();
+            //this.currentlyPlayingVid = this.eraseVid;
+            //this.currentlyPlayingVid.play();
         }.bind(this);
     }
 
@@ -36,6 +38,8 @@ class NightTime
         }
 
         this.platform.update(mainCharacter);
+
+        this.snake.update(dt);
     }
 
     draw()
@@ -46,6 +50,7 @@ class NightTime
         {
             love.graphics.draw(this.finalStagePic,0,0);
         }
+        this.snake.draw();
         mainCharacter.draw();
     }
 
