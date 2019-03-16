@@ -21,6 +21,8 @@ class Snake
         this.posX = -400;
         this.posY = 320;
         this.speed = 100;
+        this.projectiles = new Projectiles(this);
+        this.timeBeforeNextBall = gameSettings.timeBetweenSnakeProjectiles;
     }
 
     start()
@@ -42,6 +44,8 @@ class Snake
         {
             this.posX += this.speed*dt;
         }
+
+        this.projectiles.update(dt);
         
         if(this.posX > 1280)
         {
@@ -54,5 +58,6 @@ class Snake
     drawFunction()
     {
         love.graphics.draw(this.snakeAnimation,this.posX,this.posY);
+        this.projectiles.draw();
     }
 }

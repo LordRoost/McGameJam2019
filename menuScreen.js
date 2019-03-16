@@ -4,45 +4,30 @@ class MenuScreen
     {
         this.vidPath = "video/mainIntro.mp4"
         this.backgroundVid = love.graphics.newVideo(this.vidPath,true,false,false);
-        mainCharacter.posX = 590;
-        mainCharacter.posY = 340;
     }
 
     update(dt)
     {
-        if(this.backgroundVid.getCurrentTime() > 0)
+        mainCharacter.update(dt);
+        if(mainCharacter.posY > 520)
         {
-            mainCharacter.update(dt);
-            if(mainCharacter.posY > 520)
-            {
-                mainCharacter.posY = 520;
-                mainCharacter.hitGround();
-            }
-
+            mainCharacter.posY = 520;
+            mainCharacter.hitGround();
         }
 
     }
 
     draw()
     {
-        if(this.backgroundVid.getCurrentTime() > 0)
-        {
-            love.graphics.draw(this.backgroundVid,0,0);
-            mainCharacter.draw();
-            love.graphics.context2D.strokeStyle = "#000000"; 
-            love.graphics.context2D.fillStyle = "#ffffff"; 
-            love.graphics.context2D.font = "30px Arial";
-            love.graphics.context2D.fillText("One day, Allison received a chain mail from the music teacher of a friend of her cousin's ", 10, 50);
-            love.graphics.context2D.fillText("daughter which told people to spread the word about LoLo: an avatar of Satan that is secretly", 10, 80);
-            love.graphics.context2D.fillText("included in a cursed video game who drives all those who don't beat the game mad unless", 10, 110);
-            love.graphics.context2D.fillText("they shared it with 3 people. Allison scoffed and defiantly went to download the game.", 10, 140);
-            love.graphics.context2D.fillText("Little did she know, that her cousin's daughter's friend did NOT have a music teacher...THEN", 10, 200);
-            love.graphics.context2D.fillText("WHO WAS MAIL??? Also she totally got cursed and this is her struggle.", 10, 230);
-
-            love.graphics.context2D.fillText("Click to continue", 540, 650);
-        }
+        love.graphics.draw(this.backgroundVid,0,0);
+        mainCharacter.draw();
+        //love.graphics.setColor(255,255,255);
+        love.graphics.context2D.strokeStyle = "#000000"; 
+        love.graphics.context2D.fillStyle = "#ffffff"; 
+        //love.graphics.print("In West Philadelphia, born and raised, out on the playground is how I spent most of my days...", 100,100);
+        love.graphics.context2D.font = "30px Arial";
+        love.graphics.context2D.fillText("In West Philadelphia, born and raised, out on the playground is how I spent most of my days...", 10, 50);
     }
-
 
     keypressed(key, scancode, isrepeat)
     {
@@ -68,7 +53,7 @@ class MenuScreen
     {
         if(b == 1)
         {
-            currentScreen = gameScreen;
+            mainCharacter.jump();
         }
 
     }

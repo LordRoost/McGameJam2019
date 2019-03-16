@@ -9,6 +9,7 @@ class NightTime
         this.tvNoise = love.graphics.newVideo("video/tvNoise.mp4",true,true,false);
         this.finalStagePic = love.graphics.newImage("pictures/finalStagePic.png");
         this.drawfinalStagePic = false;
+        this.ballTexture = love.graphics.newImage("pictures/ball.png");
         this.bgVid.play();
         this.currentlyPlayingVid = this.bgVid;
         this.snake = new Snake();

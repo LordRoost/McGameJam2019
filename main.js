@@ -12,7 +12,11 @@ var gameSettings = {
     playerRunSpeed: 550,
     playerJumpVelocity: -30,
     playerScale: 1.0,
-    floorLevel: 570
+    floorLevel: 570,
+    timeBetweenSnakeProjectiles: 2,
+    snakeProjectileBaseSpeed: 200,
+    snakeProjectileVariation: 200,
+    snakeProjectileHitRadius: 50
 };
 
 var currentScreen = null;
@@ -44,7 +48,8 @@ love.draw = function()
 
 love.keypressed = function(key, scancode, isrepeat)
 {
-    currentScreen.keypressed(key, scancode, isrepeat)};
+    currentScreen.keypressed(key, scancode, isrepeat)
+};
 
 love.mousepressed = function (x,y,b,isTouch)
 {
