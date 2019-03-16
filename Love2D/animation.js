@@ -35,16 +35,95 @@ class Animation
         texture.srcY = this.currentFrame["srcY"];
         texture.srcWidth = this.currentFrame["srcWidth"];
         texture.srcHeight = this.currentFrame["srcHeight"];
+
+        this.collision = null;
     }
 
-    getHeight()
+    setCollisionBox(x,y,width,height)
     {
-        return this.currentFrame["srcHeight"];
+        this.collision = new CollisionBox(x,y,width,height);
     }
 
-    getWidth()
+    getCollisionX(x,scale)
     {
-        return this.currentFrame["srcWidth"];
+        if(!scale)
+        {
+            scale = 1;
+        }
+        if(this.collision != null)
+        {
+            return x+this.collision.x*scale;
+        }
+        else
+        {
+            return x;
+        }
+    }
+
+    getCollisionY(y,scale)
+    {
+        if(!scale)
+        {
+            scale = 1;
+        }
+        if(this.collision != null)
+        {
+            return y+this.collision.y*scale;
+        }
+        else
+        {
+            return y;
+        }
+    }
+
+    getCollisionWidth(scale)
+    {
+        if(!scale)
+        {
+            scale = 1;
+        }
+        if(this.collision != null)
+        {
+            return this.collision.width*scale;
+        }
+        else
+        {
+            return this.getWidth();
+        }
+    }
+
+    getCollisionHeight(scale)
+    {
+        if(!scale)
+        {
+            scale = 1;
+        }
+        if(this.collision != null)
+        {
+            return this.collision.height*scale;
+        }
+        else
+        {
+            return this.getHeight();
+        }
+    }
+
+    getHeight(scale)
+    {
+        if(!scale)
+        {
+            scale = 1;
+        }
+        return this.currentFrame["srcHeight"]*scale;
+    }
+
+    getWidth(scale)
+    {
+        if(!scale)
+        {
+            scale = 1;
+        }
+        return this.currentFrame["srcWidth"]*scale;
     }
 
     parseFrames(frames)

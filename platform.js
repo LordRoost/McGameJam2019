@@ -11,7 +11,7 @@ class Platform
 
     update(character)
     {
-        if(character.posY + character.getHeight() < this.posY)
+        if(character.getCollisionY() + character.getCollisionHeight() < this.posY)
         {
             this.detectCollision = true;
         }
@@ -19,10 +19,10 @@ class Platform
         {
             if(this.detectCollision)
             {
-                if(character.posX+character.getWidth() > this.posX && character.posX < this.posX+this.width)
+                if(character.getCollisionX()+character.getCollisionWidth() > this.posX && character.getCollisionX() < this.posX+this.width)
                 {
                     character.hitGround();
-                    character.posY = this.posY - character.getHeight();
+                    character.posY = this.posY - character.getCollisionHeight() - character.currentAnimation.collision.y;
                 }
                 else
                 {

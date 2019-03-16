@@ -17,6 +17,7 @@ class MainCharacter
                 timePerFrame: 0.09
             }
         ]);
+        this.animations.running.setCollisionBox(41,12,149,179);
         this.currentAnimation = this.animations.running;
 
         this.animationState = "running";
@@ -28,8 +29,6 @@ class MainCharacter
         this.canJump = false;
         this.canSlowDownGravity = false;
         this.scale = gameSettings.playerScale;
-
-        
     }
 
     update(dt)
@@ -83,6 +82,26 @@ class MainCharacter
             this.canJump = false;
             this.velocityY = gameSettings.playerJumpVelocity;
         }
+    }
+
+    getCollisionX()
+    {
+        return this.currentAnimation.getCollisionX(this.posX,this.scale);
+    }
+
+    getCollisionY()
+    {
+        return this.currentAnimation.getCollisionY(this.posY,this.scale);
+    }
+
+    getCollisionWidth()
+    {
+        return this.currentAnimation.getCollisionWidth(this.scale);
+    }
+
+    getCollisionHeight()
+    {
+        return this.currentAnimation.getCollisionHeight(this.scale);
     }
 
     getWidth()
