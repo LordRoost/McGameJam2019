@@ -6,6 +6,12 @@ var gameSettings = {
     playerRunSpeed: 500,
     playerJumpVelocity: -20,
     playerScale: 1
+
+    // gravity: 150,
+    // jumpHoldGravity: 50,
+    // playerRunSpeed: 750,
+    // playerJumpVelocity: -30,
+    // playerScale: 0.5
 };
 
 var currentScreen = null;
@@ -35,5 +41,5 @@ love.keypressed = function(key, scancode, isrepeat)
 
 love.mousepressed = function (x,y,b,isTouch)
 {
-    
+    currentScreen.mousepressed(key, scancode, isrepeat);
 }
