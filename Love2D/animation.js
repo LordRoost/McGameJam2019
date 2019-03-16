@@ -39,6 +39,17 @@ class Animation
         this.collision = null;
     }
 
+    resetAnimation()
+    {
+        this.currentFrame = this.frames[0];
+
+        var texture = this.currentFrame["texture"];
+        texture.srcX = this.currentFrame["srcX"];
+        texture.srcY = this.currentFrame["srcY"];
+        texture.srcWidth = this.currentFrame["srcWidth"];
+        texture.srcHeight = this.currentFrame["srcHeight"];
+    }
+
     setCollisionBox(x,y,width,height)
     {
         this.collision = new CollisionBox(x,y,width,height);

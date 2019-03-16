@@ -17,29 +17,45 @@ class MainCharacter
                 timePerFrame: 0.09
             }
         ]);
-        this.animations.running.setCollisionBox(25,3,59,95);
+        this.animations.running.setCollisionBox(17,2,66,95);
 
 
         this.animations.standing = love.graphics.newAnimation([
             {
                 type: "grid",
-                imgPath: "sprites/mainCharacterRun.png",
-                rows: 2,
+                imgPath: "sprites/mainCharacterStand.png",
+                rows: 1,
                 columns: 2,
                 startX: 0,
                 startY: 0,
                 frameWidth: 100,
                 frameHeight: 100,
-                numFrames: 4,
-                timePerFrame: 0.3
+                numFrames: 2,
+                timePerFrame: 0.5
             }
         ]);
-        this.animations.standing.setCollisionBox(41,12,149,179);
+        this.animations.standing.setCollisionBox(27,6,47,94);
+
+        this.animations.jumping = love.graphics.newAnimation([
+            {
+                type: "grid",
+                imgPath: "sprites/mainCharacterJump.png",
+                rows: 1,
+                columns: 2,
+                startX: 0,
+                startY: 0,
+                frameWidth: 100,
+                frameHeight: 100,
+                numFrames: 2,
+                timePerFrame: 0.1
+            }
+        ]);
+        this.animations.jumping.setCollisionBox(17,2,66,95);
 
 
-        this.currentAnimation = this.animations.running;
+        this.currentAnimation = this.animations.standing;
 
-        this.animationState = "running";
+        this.animationState = "standing";
         this.direction = 1;
         this.runSpeed = gameSettings.playerRunSpeed;
         this.posX = 0;
@@ -52,10 +68,43 @@ class MainCharacter
 
     update(dt)
     {
-        if(this.animationState == "running")
+        if(love.keyboard.isDown("right"))
         {
+            if(this.animationState != "running")
+            {
+                this.animationState = "running";
+                this.currentAnimation = this.animations.running;
+                this.animations.running.resetAnimation();
+            }
+            this.direction = 1;
             this.posX += this.direction*dt*this.runSpeed;
         }
+        else if(love.keyboard.isDown("left"))
+        {
+            if(this.animationState != "running")
+            {
+                this.animationState = "running";
+                this.currentAnimation = this.animations.running;
+                this.animations.running.resetAnimation();
+            }
+            this.direction = -1;
+            this.posX += this.direction*dt*this.runSpeed;
+        }
+        else
+        {
+            if(this.animationState != "standing")
+            {
+                this.animationState = "standing";
+                this.currentAnimation = this.animations.standing;
+                this.animations.standing.resetAnimation();
+            }
+        }
+
+        if(this.velocityY != 0)
+        {
+            this.currentAnimation = this.animations.jumping;
+        }
+        
         this.currentAnimation.update(dt);
 
         if(love.keyboard.isDown("space"))
@@ -92,6 +141,16 @@ class MainCharacter
         this.velocityY = 0;
         this.canJump = true;
         this.canSlowDownGravity = true;
+
+        if(this.animationState == "standing")
+        {
+            this.currentAnimation = this.animations.standing;
+            this.animations.standing.resetAnimation();
+        }
+        else if(this.animationState == "running")
+        {
+            this.currentAnimation = this.animations.running;
+        }
     }
 
     jump()

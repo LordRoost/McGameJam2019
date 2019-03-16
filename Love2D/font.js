@@ -14,7 +14,7 @@ class Font
 
     draw(context2D,text,x,y)
     {
-        context2D.fillStyle = "#000000";
+        //context2D.fillStyle = "#000000";
         context2D.font = this.fontString;
         context2D.fillText(text,x,y+this.size);
     }
