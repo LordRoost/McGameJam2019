@@ -11,13 +11,32 @@ class MainCharacter
                 columns: 2,
                 startX: 0,
                 startY: 0,
-                frameWidth: 200,
-                frameHeight: 200,
+                frameWidth: 100,
+                frameHeight: 100,
                 numFrames: 4,
                 timePerFrame: 0.09
             }
         ]);
-        this.animations.running.setCollisionBox(41,12,149,179);
+        this.animations.running.setCollisionBox(25,3,59,95);
+
+
+        this.animations.standing = love.graphics.newAnimation([
+            {
+                type: "grid",
+                imgPath: "sprites/mainCharacterRun.png",
+                rows: 2,
+                columns: 2,
+                startX: 0,
+                startY: 0,
+                frameWidth: 100,
+                frameHeight: 100,
+                numFrames: 4,
+                timePerFrame: 0.3
+            }
+        ]);
+        this.animations.standing.setCollisionBox(41,12,149,179);
+
+
         this.currentAnimation = this.animations.running;
 
         this.animationState = "running";
@@ -65,7 +84,7 @@ class MainCharacter
 
     draw()
     {
-        love.graphics.draw(this.currentAnimation,this.posX,this.posY,0,-this.direction*this.scale,this.scale);
+        love.graphics.draw(this.currentAnimation,this.posX,this.posY,0,this.direction*this.scale,this.scale);
     }
 
     hitGround()

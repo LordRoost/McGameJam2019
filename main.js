@@ -5,7 +5,7 @@ var gameSettings = {
     jumpHoldGravity: 20,
     playerRunSpeed: 500,
     playerJumpVelocity: -20,
-    playerScale: 0.8
+    playerScale: 1
 };
 
 var currentScreen = null;
