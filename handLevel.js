@@ -73,12 +73,24 @@ class HandLevel
             {
                 h.posX += this.handSpeed*dt;
             }
+
+            var xChar = mainCharacter.getCollisionX();
+            var yChar = mainCharacter.getCollisionY();
+            var widthChar = mainCharacter.getCollisionWidth();
+            var heightChar = mainCharacter.getCollisionHeight();
+            
+            if((h.posY+50 >= (yChar )) && (h.posY <= (yChar + heightChar)) && (h.posX+150 >= xChar) && (h.posX <= (xChar + widthChar)))
+            {
+                currentScreen = gameOverScreen;
+                return;
+            }
         }
 
         if(this.hands[this.hands.length-1].posX > 1280)
         {
             this.stop();
         }
+
     }
 
     drawFunction()
