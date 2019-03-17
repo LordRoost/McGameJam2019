@@ -112,7 +112,10 @@ class FinalBoss
                     this.posY += this.upSpeed*dt;
                     if(this.posY > 700)
                     {
-                        alert("you win");
+                        //alert("you win");
+                        currentScreen = victoryScreen;
+                        this.music.stop();
+                        return;
                     }
                     return;
                 }
