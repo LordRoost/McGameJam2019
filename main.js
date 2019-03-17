@@ -21,6 +21,8 @@ var gameSettings = {
 
 var currentScreen = null;
 var menuScreen = null;
+var gameOverScreen = null;
+var victoryScreen = null;
 var mainCharacter = null;
 var gravity = gameSettings.gravity;
 var jumpHoldGravity = gameSettings.jumpHoldGravity;
@@ -32,8 +34,11 @@ love.load = function()
 {
     mainCharacter = new MainCharacter();
     menuScreen = new MenuScreen();
+    gameOverScreen = new GameOverScreen();
+    victoryScreen = new VictoryScreen();
     gameScreen = new NightTime();
-    currentScreen = gameScreen;
+    currentScreen = menuScreen;
+    //currentScreen = gameOverScreen;
 }
 
 love.update = function(dt)
