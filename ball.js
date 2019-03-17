@@ -6,10 +6,13 @@ class Ball
         this.y = y;
         this.velocityX = vX;
         this.velocityY = vY;
+        this.rotation = 0;
+        this.rotationSpeed = 10;
     }
 
     update(dt)
     {
+        this.rotation += dt*this.rotationSpeed;
         this.x += this.velocityX*dt;
         if(this.x + 100 > love.graphics.getWidth())
         {
@@ -37,6 +40,6 @@ class Ball
 
     draw()
     {
-        love.graphics.draw(gameScreen.ballTexture,this.x,this.y);
+        love.graphics.draw(gameScreen.ballTexture,this.x,this.y,this.rotation,1,1,50,50);
     }
 }

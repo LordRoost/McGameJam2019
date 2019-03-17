@@ -70,6 +70,7 @@ class MenuScreen
         if(b == 1)
         {
             currentScreen = gameScreen;
+            gameScreen.start();
         }
 
     }
