@@ -84,7 +84,20 @@ class HandLevel
                 currentScreen = gameOverScreen;
                 return;
             }
+            
         }
+
+        // if((this.handOnPlatform1.posY+50 >= (yChar)) && (this.handOnPlatform1.posY <= (yChar + heightChar)) && (this.handOnPlatform1.posX+150 >= xChar) && (this.handOnPlatform1.posX <= (xChar + widthChar)))
+        // {
+        //     currentScreen = gameOverScreen;
+        //     return;
+        // }
+
+        // if((this.handOnPlatform2.posY+50 >= (yChar)) && (this.handOnPlatform2.posY <= (yChar + heightChar)) && (this.handOnPlatform2.posX+150 >= xChar) && (this.handOnPlatform2.posX <= (xChar + widthChar)))
+        // {
+        //     currentScreen = gameOverScreen;
+        //     return;
+        // }
 
         if(this.hands[this.hands.length-1].posX > 1280)
         {
