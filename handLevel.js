@@ -71,6 +71,18 @@ class HandLevel
     {
         this.handAnimation.update(dt);
 
+        this.handOnPlatform1.posY += 300*dt;
+        this.handOnPlatform2.posY += 300*dt;
+
+        if(this.handOnPlatform1.posY > this.singleHand1PosY)
+        {
+            this.handOnPlatform1.posY = this.singleHand1PosY;
+        }
+        if(this.handOnPlatform2.posY > this.singleHand2PosY)
+        {
+            this.handOnPlatform2.posY = this.singleHand2PosY;
+        }
+
         var i=0;
         var h = null;
         for(i=0;i<this.hands.length;i++)
@@ -95,6 +107,18 @@ class HandLevel
                 return;
             }
             
+        }
+
+        if(yChar+heightChar >= this.handOnPlatform1.posY &&  yChar <= this.handOnPlatform1.posY+50 && xChar+widthChar>=this.handOnPlatform1.posX && xChar <= this.handOnPlatform1.posX + 150)
+        {
+            currentScreen = gameOverScreen;
+            return;
+        }
+
+        if(yChar+heightChar >= this.handOnPlatform2.posY &&  yChar <= this.handOnPlatform2.posY+50 && xChar+widthChar>=this.handOnPlatform2.posX && xChar <= this.handOnPlatform2.posX + 150)
+        {
+            currentScreen = gameOverScreen;
+            return;
         }
 
         // if((this.handOnPlatform1.posY+50 >= (yChar)) && (this.handOnPlatform1.posY <= (yChar + heightChar)) && (this.handOnPlatform1.posX+150 >= xChar) && (this.handOnPlatform1.posX <= (xChar + widthChar)))
