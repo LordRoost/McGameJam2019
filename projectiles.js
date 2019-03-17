@@ -31,7 +31,7 @@ class Projectiles
         if(this.timeBeforeNextBall < 0)
         {
             this.timeBeforeNextBall = gameSettings.timeBetweenSnakeProjectiles;
-            this.balls.push(new Ball(this.snake.posX,this.snake.posY,Math.random()*this.varSpeed+this.baseSpeed,Math.random()*this.varSpeed+this.baseSpeed));
+            this.balls.push(new Ball(this.snake.posX+300,this.snake.posY+250,Math.random()*this.varSpeed+this.baseSpeed,Math.random()*this.varSpeed+this.baseSpeed));
         }
     }
 
