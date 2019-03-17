@@ -20,8 +20,8 @@ class VictoryScreen
             love.graphics.context2D.strokeStyle = "#000000"; 
             love.graphics.context2D.fillStyle = "#ffffff"; 
             love.graphics.context2D.font = "30px Arial";
-            love.graphics.context2D.fillText("With courage and skepticism, congratulations", 10, 50);
-            // love.graphics.context2D.fillText("save her SOUL. But what you didn't know was that YOU IS ALLISON!!1 Send 3 players to this game", 10, 80);
+            love.graphics.context2D.fillText("With courage and skepticism, Allison remembered that urban legends were indeed fake", 10, 50);
+            love.graphics.context2D.fillText("and thus could not hurt her. Congratulations! You have won!", 10, 80);
             // love.graphics.context2D.fillText("and you will be saved.", 10, 110);
             // love.graphics.context2D.fillText("they shared it with 3 people. Allison scoffed and defiantly went to download the game.", 10, 140);
             // love.graphics.context2D.fillText("Little did she know, that her cousin's daughter's friend did NOT have a music teacher...THEN", 10, 200);
@@ -36,6 +36,7 @@ class VictoryScreen
     {
         if(key == "q")
         {
+            //gameScreen.reset();
             //currentScreen = menuScreen;
         }
     }
@@ -44,6 +45,7 @@ class VictoryScreen
     {
         if(b == 1)
         {
+            gameScreen.reset();
             currentScreen = menuScreen;
         }
 

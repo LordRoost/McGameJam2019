@@ -94,11 +94,11 @@ class NightTime
 
     keypressed(key, scancode, isrepeat)
     {
-        if(key == "right")
+        if(key == "right" || key == "d")
         {
             mainCharacter.direction = 1;
         }
-        else if(key == "left")
+        else if(key == "left" || key == "a")
         {
             mainCharacter.direction = -1;
         }
@@ -106,11 +106,11 @@ class NightTime
         {
             mainCharacter.jump();
         }
-        else if(key == "up")
+        else if(key == "up" || key == "w")
         {
             mainCharacter.jump();
         }
-        else if(key == "down")
+        else if(key == "down" || key == "s")
         {
             //this.platform.detectCollision = false;
             this.platformHigh.detectCollision = false;

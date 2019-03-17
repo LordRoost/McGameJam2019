@@ -68,7 +68,7 @@ class MainCharacter
 
     update(dt)
     {
-        if(love.keyboard.isDown("right"))
+        if(love.keyboard.isDown("right") || love.keyboard.isDown("d"))
         {
             if(this.animationState != "running")
             {
@@ -80,7 +80,7 @@ class MainCharacter
             this.posX += this.direction*dt*this.runSpeed;
 
         }
-        else if(love.keyboard.isDown("left"))
+        else if(love.keyboard.isDown("left") || love.keyboard.isDown("a"))
         {
             if(this.animationState != "running")
             {

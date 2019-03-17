@@ -13,7 +13,7 @@ var gameSettings = {
     playerJumpVelocity: -30,
     playerScale: 1.0,
     floorLevel: 570,
-    timeBetweenSnakeProjectiles: 10,
+    timeBetweenSnakeProjectiles: 2.5,
     snakeProjectileBaseSpeed: 200,
     snakeProjectileVariation: 200,
     snakeProjectileHitRadius: 50,

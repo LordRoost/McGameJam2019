@@ -49,12 +49,12 @@ class MenuScreen
 
     keypressed(key, scancode, isrepeat)
     {
-        if(key == "right")
+        if(key == "right" || key == "d")
         {
             mainCharacter.direction = 1;
             //this.grassSound.play();
         }
-        else if(key == "left")
+        else if(key == "left" || key == "a")
         {
             mainCharacter.direction = -1;
             //this.grassSound.play();
