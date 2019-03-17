@@ -29,7 +29,7 @@ var gameSettings = {
     bossSpeed: 500,
     bloodStreamTime: 1,
     bloodPauseTime: 1,
-    bloodPhaseTime: 20
+    bloodPhaseTime: 15
 };
 
 var currentScreen = null;

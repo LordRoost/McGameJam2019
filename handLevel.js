@@ -20,10 +20,13 @@ class HandLevel
             }
         ]);
 
+        this.singleHand1PosY = 236;
+        this.singleHand2PosY = 369;
+
         this.handSpeed = gameSettings.handSpeed;
         
-        this.handOnPlatform1 = new SingleHand(455,236);
-        this.handOnPlatform2 = new SingleHand(742,369);
+        this.handOnPlatform1 = new SingleHand(455,-50);
+        this.handOnPlatform2 = new SingleHand(742,-50);
 
         this.handFloorLevel = gameSettings.floorLevel+50;
         this.hands = [];
@@ -56,7 +59,7 @@ class HandLevel
         var i=0;
         for(i=0;i<gameSettings.numberOfHands;i++)
         {
-            this.hands.push(new SingleHand(-150+i*gameSettings.handDistance,this.handFloorLevel));
+            this.hands.push(new SingleHand(-150-i*gameSettings.handDistance,this.handFloorLevel));
         }
     }
 
@@ -79,7 +82,7 @@ class HandLevel
             var widthChar = mainCharacter.getCollisionWidth();
             var heightChar = mainCharacter.getCollisionHeight();
             
-            if((h.posY+50 >= (yChar )) && (h.posY <= (yChar + heightChar)) && (h.posX+150 >= xChar) && (h.posX <= (xChar + widthChar)))
+            if((h.posY+50 >= (yChar )) && (h.posY <= (yChar + heightChar)) && (h.posX+135 >= xChar) && (h.posX <= (xChar + widthChar)))
             {
                 currentScreen = gameOverScreen;
                 return;

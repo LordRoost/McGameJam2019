@@ -24,6 +24,8 @@ class FinalBoss
         this.bloodStreamTime = gameSettings.bloodStreamTime;
         this.bloodPauseTime = gameSettings.bloodPauseTime;
         this.bloodRunning = false;
+        this.phase2Time = gameSettings.bloodPhaseTime;
+        this.velocityChanged = false;
     }
 
     start()
@@ -49,11 +51,13 @@ class FinalBoss
         this.bloodStreamTime = gameSettings.bloodStreamTime;
         this.bloodPauseTime = gameSettings.bloodPauseTime;
         this.bloodRunning = false;
+        this.phase2Time = gameSettings.bloodPhaseTime;
+        this.velocityChanged = false;
     }
 
     updateFunction(dt)
     {
-        if(this.posY > 0)
+        if(this.posY > 0 && this.phase == 1)
         {
             this.posY -= this.upSpeed*dt;
             if(this.posY < 0)
@@ -92,6 +96,24 @@ class FinalBoss
                 {
                     this.posX = -310;
                     this.bossVelocity *= -1;
+                }
+
+                this.phase2Time -= dt;
+                if(this.phase2Time < 0)
+                {
+                    this.bloodRunning  = false;
+                    if(!this.velocityChanged)
+                    {
+                        this.velocityChanged = true;
+                        this.bossVelocity = 5000;
+                    }
+                    
+                    this.posY += this.upSpeed*dt;
+                    if(this.posY > 700)
+                    {
+                        alert("you win");
+                    }
+                    return;
                 }
 
                 if(this.bloodRunning)
