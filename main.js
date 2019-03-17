@@ -13,10 +13,17 @@ var gameSettings = {
     playerJumpVelocity: -30,
     playerScale: 1.0,
     floorLevel: 570,
-    timeBetweenSnakeProjectiles: 2,
+    timeBetweenSnakeProjectiles: 10,
     snakeProjectileBaseSpeed: 200,
     snakeProjectileVariation: 200,
-    snakeProjectileHitRadius: 50
+    snakeProjectileHitRadius: 50,
+    handSpeed: 200,
+    handDistance:200,
+    numberOfHands:10,
+    bossHandSpawnRate: 1,
+    bossHandMinHeight: 0,
+    bossHandMaxHeight: 700,
+    bossHandSpeed: 200
 };
 
 var currentScreen = null;

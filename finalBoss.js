@@ -12,6 +12,10 @@ class FinalBoss
         this.posX = 335;
         this.posY = 720;
         this.upSpeed = 100;
+        this.levelStarted = false;
+
+        this.hands = [];
+        this.timeBetweenHands = gameSettings.bossHandSpawnRate;
     }
 
     start()
@@ -21,12 +25,40 @@ class FinalBoss
         this.music.play();
     }
 
+    reset()
+    {
+        this.update = function(dt){};
+        this.draw = function(){};
+        this.music.stop();
+        this.posX = 335;
+        this.posY = 720;
+        this.levelStarted = false;
+        this.hands = [];
+        this.timeBetweenHands = gameSettings.bossHandSpawnRate;
+    }
+
     updateFunction(dt)
     {
         if(this.posY > 0)
         {
             this.posY -= this.upSpeed*dt;
+            if(this.posY < 0)
+            {
+                this.levelStarted = true;
+                this.posY = 0;
+            }
         }
+
+        if(this.levelStarted)
+        {
+            this.timeBetweenHands -= dt;
+            if(this.timeBetweenHands < 0)
+            {
+                this.timeBetweenHands += gameSettings.bossHandSpawnRate;
+                this.hands.push(new BossHand());
+            }
+        }
+
     }
 
     drawFunction()

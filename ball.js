@@ -14,9 +14,9 @@ class Ball
     {
         this.rotation += dt*this.rotationSpeed;
         this.x += this.velocityX*dt;
-        if(this.x + 100 > love.graphics.getWidth())
+        if(this.x + 45 > love.graphics.getWidth())
         {
-            this.x = love.graphics.getWidth()-100;
+            this.x = love.graphics.getWidth()-45;
             this.velocityX *= -1;
         }
         else if(this.x < 0)
@@ -26,9 +26,9 @@ class Ball
         }
 
         this.y += this.velocityY*dt;
-        if(this.y + 100 > love.graphics.getHeight())
+        if(this.y + 80 > love.graphics.getHeight())
         {
-            this.y = love.graphics.getHeight() - 100;
+            this.y = love.graphics.getHeight() - 80;
             this.velocityY *= -1;
         }
         else if(this.y < 0)

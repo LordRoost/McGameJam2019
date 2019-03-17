@@ -60,6 +60,13 @@ class Video
         }
     }
 
+    stop()
+    {
+        video.pause();
+        video.currentTime = 0;
+        video.load();
+    }
+
     draw(graphics, x, y, r, sx, sy)
     {
         var restoreContext = false;

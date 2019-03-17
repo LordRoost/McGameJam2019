@@ -16,6 +16,7 @@ class NightTime
         
         this.currentlyPlayingVid = this.bgVid;
         this.snake = new Snake();
+        this.handLevel = new HandLevel();
         this.currentBoss = this.snake;
 
         this.eraseVid.onVideoEnd = function()
@@ -39,6 +40,20 @@ class NightTime
     start()
     {
         this.bgVid.play();
+    }
+
+    reset()
+    {
+        this.finalBoss.reset();
+        this.platformHigh = new Platform(455,286,135);
+        this.platformLow = new Platform(742,419,135);
+        this.bgVid.stop();
+        this.eraseVid.stop();
+        this.tvNoise.stop();
+        this.currentlyPlayingVid = this.bgVid;
+        this.snake.reset();
+        this.handLevel.reset();
+        this.currentBoss = this.snake;
     }
 
     update(dt)

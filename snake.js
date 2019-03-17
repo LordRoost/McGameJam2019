@@ -35,6 +35,17 @@ class Snake
     {
         this.update = function(dt){};
         this.draw = function(){};
+        gameScreen.currentBoss = gameScreen.handLevel;
+        gameScreen.handLevel.start();
+    }
+
+    reset()
+    {
+        this.update = function(dt){};
+        this.draw = function(){};
+        this.posX = -400;
+        this.posY = 320;
+        this.projectiles.reset();
     }
 
     updateFunction(dt)
@@ -50,8 +61,8 @@ class Snake
         if(this.posX > 1280)
         {
             this.stop();
-            gameScreen.currentlyPlayingVid = gameScreen.eraseVid;
-            gameScreen.currentlyPlayingVid.play();
+            //gameScreen.currentlyPlayingVid = gameScreen.eraseVid;
+            //gameScreen.currentlyPlayingVid.play();
         }
     }
 
