@@ -129,6 +129,15 @@ class MainCharacter
         }
 
         this.posY += this.velocityY;
+
+        if((this.posX+100) >= 1280)
+        {
+            this.posX = 1180;
+        }
+        else if(this.posX <= -12)
+        {
+            this.posX = -12;
+        }
     }
 
     draw()
