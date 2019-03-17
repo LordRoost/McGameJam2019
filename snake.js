@@ -23,6 +23,8 @@ class Snake
         this.speed = 100;
         this.projectiles = new Projectiles(this);
         this.timeBeforeNextBall = gameSettings.timeBetweenSnakeProjectiles;
+        this.snakeHitRadius = gameSettings.snakeRadius;
+
     }
 
     start()
@@ -61,9 +63,21 @@ class Snake
         if(this.posX > 1280)
         {
             this.stop();
+            return;
             //gameScreen.currentlyPlayingVid = gameScreen.eraseVid;
             //gameScreen.currentlyPlayingVid.play();
         }
+
+        var playerCenterX = mainCharacter.posX+50;
+        var playerCenterY = mainCharacter.posY+50;
+
+        if(Math.sqrt((playerCenterX-(this.posX+200))**2+(playerCenterY-(this.posY+200))**2) < this.snakeHitRadius)
+        {
+            //alert("you died!");
+            currentScreen = gameOverScreen;
+            return;
+        }
+
     }
 
     drawFunction()

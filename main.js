@@ -17,6 +17,7 @@ var gameSettings = {
     snakeProjectileBaseSpeed: 200,
     snakeProjectileVariation: 200,
     snakeProjectileHitRadius: 50,
+    snakeRadius: 200,
     handSpeed: 200,
     handDistance:200,
     numberOfHands:10,
