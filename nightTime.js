@@ -2,23 +2,28 @@ class NightTime
 {
     constructor()
     {
+        this.finalBoss = new FinalBoss();
         this.floorLevel = gameSettings.floorLevel;
         //this.platform = new Platform(100,350,300);
         this.platformHigh = new Platform(455,286,135);
         this.platformLow = new Platform(742,419,135);
-        this.bgVid = love.graphics.newVideo("video/bgCycle.mp4",true,false,false);
+        this.bgVid = love.graphics.newVideo("video/bgCycle.mp4",false,false,false);
         this.eraseVid = love.graphics.newVideo("video/bgErase.mp4");
-        this.tvNoise = love.graphics.newVideo("video/tvNoise.mp4",true,true,false);
-        this.finalStagePic = love.graphics.newImage("pictures/finalStagePic.png");
-        this.drawfinalStagePic = false;
+        this.tvNoise = love.graphics.newVideo("video/tvNoise.mp4",false,true,false);
+        //this.finalStagePic = love.graphics.newImage("pictures/finalStagePic.png");
+        //this.drawfinalStagePic = false;
         this.ballTexture = love.graphics.newImage("pictures/ball.png");
-        this.bgVid.play();
+        
         this.currentlyPlayingVid = this.bgVid;
         this.snake = new Snake();
+        this.currentBoss = this.snake;
 
         this.eraseVid.onVideoEnd = function()
         {
-            this.drawfinalStagePic = true;
+            this.finalBoss.start();
+            this.platformHigh.update = function(dt){};
+            this.platformLow.update = function(dt){};
+            this.currentBoss = this.finalBoss;
             this.currentlyPlayingVid = this.tvNoise;
             this.currentlyPlayingVid.play();
         }.bind(this);
@@ -29,6 +34,11 @@ class NightTime
             //this.currentlyPlayingVid = this.eraseVid;
             //this.currentlyPlayingVid.play();
         }.bind(this);
+    }
+
+    start()
+    {
+        this.bgVid.play();
     }
 
     update(dt)
@@ -44,7 +54,7 @@ class NightTime
         this.platformHigh.update(mainCharacter);
         this.platformLow.update(mainCharacter);
 
-        this.snake.update(dt);
+        this.currentBoss.update(dt);
     }
 
     draw()
@@ -54,11 +64,7 @@ class NightTime
         //love.graphics.rectangle("fill",this.platformHigh.posX,this.platformHigh.posY,this.platformHigh.width,40);
         //love.graphics.rectangle("fill",this.platformLow.posX,this.platformLow.posY,this.platformLow.width,40);
 
-        if(this.drawfinalStagePic)
-        {
-            love.graphics.draw(this.finalStagePic,0,0);
-        }
-        this.snake.draw();
+        this.currentBoss.draw();
         mainCharacter.draw();
     }
 
