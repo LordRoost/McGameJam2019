@@ -28,9 +28,7 @@ class Projectiles
             b.update(dt);
             if(Math.sqrt((playerCenterX-b.x-50)**2+(playerCenterY-b.y-50)**2) < this.hitRadius)
             {
-                //alert("you died!");
-                currentScreen = gameOverScreen;
-                return;
+                alert("you died");
             }
         }
 

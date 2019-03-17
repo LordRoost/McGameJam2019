@@ -21,10 +21,15 @@ var gameSettings = {
     handSpeed: 200,
     handDistance:200,
     numberOfHands:10,
+    bossNumberOfHands: 10,
     bossHandSpawnRate: 1,
     bossHandMinHeight: 0,
     bossHandMaxHeight: 700,
-    bossHandSpeed: 200
+    bossHandSpeed: 200,
+    bossSpeed: 500,
+    bloodStreamTime: 1,
+    bloodPauseTime: 1,
+    bloodPhaseTime: 20
 };
 
 var currentScreen = null;
