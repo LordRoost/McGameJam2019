@@ -13,7 +13,10 @@ class NightTime
         //this.finalStagePic = love.graphics.newImage("pictures/finalStagePic.png");
         //this.drawfinalStagePic = false;
         this.ballTexture = love.graphics.newImage("pictures/ball.png");
+
+        this.bgMusic = love.audio.newSource("sounds/heyYou.mp3");
         
+        //this.bossMusic = love.audio.newSource("sounds/bossMusic.mp3");
         this.currentlyPlayingVid = this.bgVid;
         this.snake = new Snake();
         this.handLevel = new HandLevel();
@@ -31,6 +34,8 @@ class NightTime
 
         this.bgVid.onVideoEnd = function()
         {
+            //menuScreen.bgMusic.stop();
+            this.bgMusic.stop();
             this.snake.start();
             //this.currentlyPlayingVid = this.eraseVid;
             //this.currentlyPlayingVid.play();
@@ -39,7 +44,11 @@ class NightTime
 
     start()
     {
+        menuScreen.ambiance.stop();
         this.bgVid.play();
+        this.bgMusic.play();
+
+
     }
 
     reset()

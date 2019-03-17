@@ -30,6 +30,7 @@ class FinalBoss
 
     start()
     {
+        gameScreen.handLevel.scribble.stop();
         this.update = this.updateFunction;
         this.draw = this.drawFunction;
         this.music.play();
@@ -139,7 +140,10 @@ class FinalBoss
                 {
                     if(mainCharacter.posX >= this.posX+240 && mainCharacter.posX <= this.posX+295)
                     {
-                        alert("you died");
+                        //alert("you died");
+                        currentScreen = gameOverScreen;
+                        menuScreen.ambiance.play();
+                        return;
                     }
                 }
             }

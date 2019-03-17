@@ -30,6 +30,8 @@ class Projectiles
             {
                 //alert("you died");
                 currentScreen = gameOverScreen;
+                menuScreen.ambiance.play();
+                gameScreen.snake.bossMusic.stop();
                 return;
             }
         }

@@ -27,14 +27,14 @@ class GameOverScreen
             // love.graphics.context2D.fillText("Little did she know, that her cousin's daughter's friend did NOT have a music teacher...THEN", 10, 200);
             // love.graphics.context2D.fillText("WHO WAS MAIL??? Also she totally got cursed and this is her struggle.", 10, 230);
 
-            love.graphics.context2D.fillText("Your curse continues...Click to retry", 500, 650);
+            love.graphics.context2D.fillText("Your curse continues...Click to retry", 450, 650);
         }
     }
 
 
     keypressed(key, scancode, isrepeat)
     {
-        if(key == "m")
+        if(key == "p")
         {
             currentScreen = victoryScreen;
         }
@@ -44,6 +44,7 @@ class GameOverScreen
     {
         if(b == 1)
         {
+            menuScreen.ambiance.stop();
             gameScreen.reset();
             currentScreen = gameScreen;
             gameScreen.start();

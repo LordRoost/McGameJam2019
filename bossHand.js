@@ -43,6 +43,23 @@ class BossHand
     {
         this.posX += dt*this.velocityX;
         this.posY += dt*this.velocityY;
+
+        var xChar = mainCharacter.getCollisionX();
+        var yChar = mainCharacter.getCollisionY();
+        var widthChar = mainCharacter.getCollisionWidth();
+        var heightChar = mainCharacter.getCollisionHeight();
+
+        var handWidth = this.texture.getWidth();
+        var handHeight = this.texture.getHeight();
+
+        if((this.posY+handHeight >= (yChar )) && (this.posY <= (yChar + heightChar)) && (this.posX+handWidth >= xChar) && (this.posX <= (xChar + widthChar)))
+        {
+            //dead
+            currentScreen = gameOverScreen;
+            menuScreen.ambiance.play();
+            gameScreen.finalBoss.music.stop();
+            return;
+        }
     }
 
     draw()

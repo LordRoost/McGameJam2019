@@ -13,7 +13,7 @@ var gameSettings = {
     playerJumpVelocity: -30,
     playerScale: 1.0,
     floorLevel: 570,
-    timeBetweenSnakeProjectiles: 10,
+    timeBetweenSnakeProjectiles: 15,
     snakeProjectileBaseSpeed: 200,
     snakeProjectileVariation: 200,
     snakeProjectileHitRadius: 50,
@@ -51,7 +51,6 @@ love.load = function()
     victoryScreen = new VictoryScreen();
     gameScreen = new NightTime();
     currentScreen = menuScreen;
-    //currentScreen = gameOverScreen;
 }
 
 love.update = function(dt)

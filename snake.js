@@ -24,6 +24,7 @@ class Snake
         this.projectiles = new Projectiles(this);
         this.timeBeforeNextBall = gameSettings.timeBetweenSnakeProjectiles;
         this.snakeHitRadius = gameSettings.snakeRadius;
+        this.bossMusic = love.audio.newSource("sounds/bossMusic.mp3");
 
     }
 
@@ -31,6 +32,7 @@ class Snake
     {
         this.update = this.updateFunction;
         this.draw = this.drawFunction;
+        this.bossMusic.play();
     }
 
     stop()
@@ -75,6 +77,8 @@ class Snake
         {
             //alert("you died!");
             currentScreen = gameOverScreen;
+            menuScreen.ambiance.play();
+            this.bossMusic.stop();
             return;
         }
 

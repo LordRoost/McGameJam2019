@@ -6,9 +6,10 @@ class MenuScreen
         this.backgroundVid = love.graphics.newVideo(this.vidPath,true,false,false);
         mainCharacter.posX = 590;
         mainCharacter.posY = 340;
-        //TODO reset gamescreen
         //this.grassSound = love.audio.newSource("sounds/grassWalk.mp3");
-
+        this.ambiance = love.audio.newSource("sounds/ambiance.mp3");
+        this.ambiance.setVolume(0.5);
+        this.ambiance.play();
     }
 
     update(dt)

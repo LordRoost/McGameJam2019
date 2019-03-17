@@ -28,6 +28,8 @@ class HandLevel
         this.handOnPlatform1 = new SingleHand(455,-50);
         this.handOnPlatform2 = new SingleHand(742,-50);
 
+        this.scribble = love.audio.newAudio("sounds/scribble.wav");
+
         this.handFloorLevel = gameSettings.floorLevel+50;
         this.hands = [];
         var i=0;
@@ -49,6 +51,8 @@ class HandLevel
         this.draw = function(){};
         gameScreen.currentlyPlayingVid = gameScreen.eraseVid;
         gameScreen.eraseVid.play();
+        gameScreen.snake.bossMusic.stop();
+        this.scribble.play();
     }
 
     reset()
@@ -84,7 +88,10 @@ class HandLevel
             
             if((h.posY+50 >= (yChar )) && (h.posY <= (yChar + heightChar)) && (h.posX+135 >= xChar) && (h.posX <= (xChar + widthChar)))
             {
+                //died
                 currentScreen = gameOverScreen;
+                menuScreen.ambiance.play();
+                gameScreen.snake.bossMusic.stop();
                 return;
             }
             
