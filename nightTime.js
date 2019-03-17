@@ -3,7 +3,9 @@ class NightTime
     constructor()
     {
         this.floorLevel = gameSettings.floorLevel;
-        this.platform = new Platform(100,350,300);
+        //this.platform = new Platform(100,350,300);
+        this.platformHigh = new Platform(455,286,135);
+        this.platformLow = new Platform(742,419,135);
         this.bgVid = love.graphics.newVideo("video/bgCycle.mp4",true,false,false);
         this.eraseVid = love.graphics.newVideo("video/bgErase.mp4");
         this.tvNoise = love.graphics.newVideo("video/tvNoise.mp4",true,true,false);
@@ -38,7 +40,9 @@ class NightTime
             mainCharacter.hitGround();
         }
 
-        this.platform.update(mainCharacter);
+        //this.platform.update(mainCharacter);
+        this.platformHigh.update(mainCharacter);
+        this.platformLow.update(mainCharacter);
 
         this.snake.update(dt);
     }
@@ -46,7 +50,10 @@ class NightTime
     draw()
     {
         love.graphics.draw(this.currentlyPlayingVid,0,0);
-        love.graphics.rectangle("fill",this.platform.posX,this.platform.posY,this.platform.width,50);
+        //love.graphics.rectangle("fill",this.platform.posX,this.platform.posY,this.platform.width,50);
+        //love.graphics.rectangle("fill",this.platformHigh.posX,this.platformHigh.posY,this.platformHigh.width,40);
+        //love.graphics.rectangle("fill",this.platformLow.posX,this.platformLow.posY,this.platformLow.width,40);
+
         if(this.drawfinalStagePic)
         {
             love.graphics.draw(this.finalStagePic,0,0);
@@ -54,6 +61,15 @@ class NightTime
         this.snake.draw();
         mainCharacter.draw();
     }
+
+    // mousepressed(x,y,b,isTouch)
+    // {
+    //     if(b == 1)
+    //     {
+    //         alert("x: " + x + " y: " + y);
+    //     }
+
+    // }
 
     keypressed(key, scancode, isrepeat)
     {
@@ -75,7 +91,10 @@ class NightTime
         }
         else if(key == "down")
         {
-            this.platform.detectCollision = false;
+            //this.platform.detectCollision = false;
+            this.platformHigh.detectCollision = false;
+            this.platformLow.detectCollision = false;
+
         }
     }
 }

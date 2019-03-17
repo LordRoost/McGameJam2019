@@ -4,14 +4,12 @@ class MenuScreen
     {
         this.vidPath = "video/mainIntro.mp4"
         this.backgroundVid = love.graphics.newVideo(this.vidPath,true,false,false);
-<<<<<<< HEAD
-=======
+
         mainCharacter.posX = 590;
         mainCharacter.posY = 340;
         //TODO reset gamescreen
-        this.grassSound = love.audio.newSource("sounds/grassWalk.mp3");
+        //this.grassSound = love.audio.newSource("sounds/grassWalk.mp3");
 
->>>>>>> origin/master
     }
 
     update(dt)
@@ -42,12 +40,12 @@ class MenuScreen
         if(key == "right")
         {
             mainCharacter.direction = 1;
-            this.grassSound.play();
+            //this.grassSound.play();
         }
         else if(key == "left")
         {
             mainCharacter.direction = -1;
-            this.grassSound.play();
+            //this.grassSound.play();
         }
         else if(key == "space")
         {
