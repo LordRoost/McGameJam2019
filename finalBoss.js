@@ -115,9 +115,9 @@ class FinalBoss
 
                 if(this.bloodRunning)
                 {
-                    if(mainCharacter.posX >= this.posX+300 && mainCharacter.posX <= this.posX+400)
+                    if(mainCharacter.posX >= this.posX+240 && mainCharacter.posX <= this.posX+295)
                     {
-                        //alert("you died");
+                        alert("you died");
                     }
                 }
             }
